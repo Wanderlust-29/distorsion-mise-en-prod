@@ -1,5 +1,5 @@
 <?php
-    class AbtractManager
+    class AbstractManager
     {
         protected PDO $db;
         
