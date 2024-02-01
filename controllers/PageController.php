@@ -7,6 +7,8 @@
 
         public function home() : void {
             $route  = "home";
+            $postManager = new PostManager();
+            $posts = $postManager->getAllPosts();
             require "templates/layout.phtml";
         }
 
