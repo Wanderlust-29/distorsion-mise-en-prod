@@ -2,23 +2,10 @@
     <h1>Catégories</h1>
     <ul>
         <ul>
-            <h2>Cinéma<a href="">+</a></h2>
-            <li><a href="">Aventure</a></li>
-        </ul>
-        <ul>
-            <h2>Jeux vidéos<a href="">+</a></h2>
-            <li><a href="">Aventure</a></li>
-        </ul>
-        <ul>
-            <h2>Cinéma<a href="">+</a></h2>
-            <li><a href="">Zelda</a></li>
-        </ul>
-        <ul>
-            <h2>Littérature<a href="">+</a></h2>
-            <li><a href="">Zelda</a></li>
-        </ul>
-        <ul>
-            <h2>Maquillage</h2>
+            <?php foreach ($categories as $category){ ?>
+                <h2><?= $category['category_name']?></h2><a href="index.php?route=create-category">+</a>
+                <?php foreach ($channels as $channel){ ?>
+                <li><?= $channel['channel_name']?><a href="index.php?route=create-channel">+</a></li>
         </ul>
     </ul>
 </section>
