@@ -6,11 +6,11 @@
         public function __construct() {
             $host = "db.3wa.io";
             $port = "3306";
-            $dbname = "bricerubeaux_blog_poo";
+            $dbname = "eddyfrair_grp_distorsion";
             $connexionString = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8";
             
-            $user = "bricerubeaux";
-            $password = "dfcef705866daf59347bbd9795fbe016";
+            $user = "eddyfrair";
+            $password = "be1462e6ceeb160384371a8dad76c812";
             $this->db = new PDO($connexionString, $user, $password);
         }
     }
