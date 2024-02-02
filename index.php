@@ -1,9 +1,6 @@
 <?php
-require "config/autoload.php";
-$categoryManager = new CategoryManager();
-$categoryByID = $categoryManager->getCategoryById(2);
-
-
-$newCategory = $categoryManager->createCategory('Cinema');
-var_dump($categoryManager->getAllCategories());
+    session_start();
+    require "config/autoload.php";
+    $router = new Router();
+    $router->handleRequest($_GET, $_SESSION);
 ?>
