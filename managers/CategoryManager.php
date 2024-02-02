@@ -9,7 +9,7 @@ class CategoryManager extends AbstractManager {
         $categoriesDB = $query->fetchAll(PDO::FETCH_ASSOC);
         $categoriesTab = [];
         foreach ($categoriesDB as $categoryDB) {
-            $category = new Category($categoryDB['id'], $categoryDB['category_name']);
+            $category = new Category($categoryDB['category_name']);
             $categoriesTab[] = $category;
         }
         return $categoriesTab;
@@ -21,11 +21,11 @@ class CategoryManager extends AbstractManager {
         $query->execute(['id' => $id]);
         $categoryDB = $query->fetch(PDO::FETCH_ASSOC);
 
-        if ($categoryDB) {
-            return new Category($categoryDB['id'], $categoryDB['category_name']);
-        }
-
-        return null;
+        $category = new Category($categoryDB['category_name']);
+        $category->setId($categoryDB['id']);
+        return $category;
+        // return new Category($categoryDB['id'], $categoryDB['category_name']);
+       
     }
 
     public function createCategory(string $categoryName): ?Category
@@ -41,13 +41,4 @@ class CategoryManager extends AbstractManager {
         return null;
     }
 
-
-
-    public function deleteCategory(int $id): bool
-    {
-        $query = $this->db->prepare('DELETE FROM categories WHERE id = :id');
-        $success = $query->execute(['id' => $id]);
-
-        return $success;
-    }
 }
