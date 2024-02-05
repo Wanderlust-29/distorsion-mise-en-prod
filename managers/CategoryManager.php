@@ -24,22 +24,13 @@ class CategoryManager extends AbstractManager {
 
         $category = new Category($categoryDB['category_name']);
         $category->setId($categoryDB['id']);
-        return $category;
-        // return new Category($categoryDB['id'], $categoryDB['category_name']);
-       
+        return $category;      
     }
 
-    public function createCategory(string $categoryName): ?Category
+    public function createCategory(string $categoryName): void
     {
         $query = $this->db->prepare('INSERT INTO categories (category_name) VALUES (:categoryName)');
         $success = $query->execute(['categoryName' => $categoryName]);
-
-        if ($success) {
-            $categoryId = $this->db->lastInsertId();
-            return new Category($categoryId, $categoryName);
-        }
-
-        return null;
     }
 
 }
