@@ -1,12 +1,16 @@
-<!-- <section>
+
+<section>
     <h1>Catégories</h1>
     <ul>
         <ul>
-            <?php foreach ($categories as $category){ ?>
-                <h2><?= $category['category_name']?></h2><a href="index.php?route=create-category">+</a>
-                <?php } foreach ($channels as $channel){ ?>
-                <li><?= $channel['channel_name']?><a href="index.php?route=create-channel">+</a></li>
-            <?php } ?>
+            <?php foreach ($categories as $category) {?>
+            <h2><?= $category->getCategoryName();?></h2><a href="index.php?route=create-category">+</a>        <?php
+            }
+        ?>
+                <?php foreach ($channels as $channel){ ?>
+                <li><?= $channel->getChannelName(); ?><a href="index.php?route=create-channel">+</a></li><?php
+}
+        ?>
         </ul>
     </ul>
-</section> -->
+</section>

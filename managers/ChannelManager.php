@@ -10,7 +10,7 @@ class ChannelManager extends AbstractManager
 
     }
 
-    public function findAll() : array
+    public function getAllChannels() : array
     {
         $listchannel = [];
 
