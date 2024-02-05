@@ -24,8 +24,6 @@ class CategoryManager extends AbstractManager {
         $category = new Category($categoryDB['category_name']);
         $category->setId($categoryDB['id']);
         return $category;
-        // return new Category($categoryDB['id'], $categoryDB['category_name']);
-       
     }
 
     public function createCategory(string $categoryName): ?Category
@@ -35,7 +33,7 @@ class CategoryManager extends AbstractManager {
 
         if ($success) {
             $categoryId = $this->db->lastInsertId();
-            return new Category($categoryId, $categoryName);
+            return new Category($categoryName);
         }
 
         return null;
