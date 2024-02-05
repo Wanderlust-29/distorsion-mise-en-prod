@@ -18,6 +18,10 @@
                 $pageController->categoryCreate();
             } else if(isset($get['route']) && $get['route'] === "create-category") {
                 $route = $pageController->categoryForm();
+            } else if(isset($get['route']) && $get['route'] === "create-channel") {
+                $route = $pageController->channelForm();
+            } else if(isset($get['route']) && $get['route'] === "channelName") {
+                $route = $pageController->channelCreate($get['id']);
             } else if(!isset($get['route'])) {
                 $posts = $pageController->home();    
             }  else {
