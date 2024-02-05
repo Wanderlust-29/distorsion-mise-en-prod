@@ -19,9 +19,8 @@ class PostManager extends AbstractManager {
 		return $postsTab;
 	}
 
-	public function getCreatePost(Post $post) : void
+	public function createPost(Post $post) : void
 	{
-		var_dump($post);
 		$query = $this->db->prepare('INSERT INTO posts (content, created_at, id_channel) VALUES (:content, :createdAt, :idChannel)');
 		
 		$parameters = [
@@ -29,7 +28,7 @@ class PostManager extends AbstractManager {
 			'createdAt' => date('Y-m-d H:i:s'),
 			'idChannel' => $post->getIdChannel(),
 		];
-		$last = $query->execute($parameters);
+		$query->execute($parameters);
 	}
 
 

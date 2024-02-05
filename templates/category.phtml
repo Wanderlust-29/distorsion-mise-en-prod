@@ -3,12 +3,13 @@
     <ul>
         <ul>
             <?php foreach ($categories as $category) {?>
-            <h2><?= $category->getCategoryName();?></h2><a href="index.php?route=create-channel">+</a><?php
+            <h2><?= $category->getCategoryName();?><a href="index.php?route=create-channel&id=<?php echo $category->getId(); ?>">+</a></h2>       <?php
             }
-        ?>
+                ?>
                 <?php foreach ($channels as $channel){ ?>
-                <li><?= $channel->getChannelName(); ?></li><?php
-}
+                <li><?= $channel->getChannelName(); ?></li>
+                <?php
+            }
         ?>
         </ul>
     </ul>

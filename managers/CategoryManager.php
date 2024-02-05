@@ -11,6 +11,7 @@ class CategoryManager extends AbstractManager {
         $categoriesTab = [];
         foreach ($categoriesDB as $categoryDB) {
             $category = new Category($categoryDB['category_name']);
+            $category->setId($categoryDB['id']);
             $categoriesTab[] = $category;
         }
         return $categoriesTab;
