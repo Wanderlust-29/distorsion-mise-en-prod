@@ -1,6 +1,7 @@
 <?php
 
 class CategoryManager extends AbstractManager {
+    
 
     public function getAllCategories(): array
     {
