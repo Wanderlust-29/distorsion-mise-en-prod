@@ -8,7 +8,7 @@
             }
         ?>
                 <?php foreach ($channels as $channel){ ?>
-                <li><?= $channel->getChannelName(); ?></li><?php
+                <li><a href="index.php?route=channel&id=<?= $channel->getId();?>"><?= $channel->getChannelName();?></a></li><?php
 }
         ?>
         </ul>
