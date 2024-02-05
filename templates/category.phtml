@@ -2,12 +2,12 @@
     <h1>Catégories<a href="index.php?route=create-category">+</a> </h1>
     <ul>
         <ul>
-            <?php foreach ($categories as $category) {?>
-            <h2><?= $category->getCategoryName();?><a href="index.php?route=create-channel">+</a></h2>       <?php
+            <?php var_dump( $channels); foreach ($categories as $category) {?>
+            <h2><?= $category->getCategoryName();?></h2><a href="index.php?route=create-category">+</a><?php
             }
         ?>
                 <?php foreach ($channels as $channel){ ?>
-                <li><?= $channel->getChannelName(); ?></li><?php
+                <li><a href="index.php?route=channel&id=<?= $channel->getId(); ?>"><?= $channel->getChannelName(); ?></a><a href="index.php?route=create-channel">+</a></li><?php
 }
         ?>
         </ul>
