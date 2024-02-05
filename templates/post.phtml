@@ -1,9 +1,8 @@
 <?php
-    // var_dump($posts);
     echo "<table>";
     foreach($posts as $post) {
         echo "<tr>";
-        // echo "<td>".DateTime::createFromFormat('Y-m-d H:i:s',$post->getCreatedAt())."</td>";
+        echo "<td>[".$post->getCreatedAt()->format("H:m")."]</td>";
         echo "<td>".$post->getContent()."</td>";
         echo "</tr>";
     }

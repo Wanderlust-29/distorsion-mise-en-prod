@@ -26,14 +26,10 @@ class PostManager extends AbstractManager {
 		
 		$parameters = [
 			'content' => $post->getContent(),
-			'createdAt' => DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s')),
+			'createdAt' => date('Y-m-d H:i:s'),
 			'idChannel' => $post->getIdChannel(),
 		];
 		$last = $query->execute($parameters);
-		
-		// $post = new Post($post->getContent(), DateTime::createFromFormat('Y-m-d H:i:s', $post->getCreatedAt()));
-		// $post->setId($last->lastInsertId());
-		// return $post;
 	}
 
 
