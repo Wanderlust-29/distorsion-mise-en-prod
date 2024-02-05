@@ -2,7 +2,7 @@
     echo "<table>";
     foreach($posts as $post) {
         echo "<tr>";
-        echo "<td>[".$post->getCreatedAt()->format("H:m")."]</td>";
+        echo "<td>[".$post->getCreatedAt()->format("H:i")."]</td>";
         echo "<td>".$post->getContent()."</td>";
         echo "</tr>";
     }
