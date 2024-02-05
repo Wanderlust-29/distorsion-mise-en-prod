@@ -21,11 +21,15 @@
             } else if(isset($get['route']) && $get['route'] === "create-channel") {
                 $route = $pageController->channelForm();
             } else if(isset($get['route']) && $get['route'] === "channelName") {
-                $route = $pageController->channelCreate($get['id']);
+                $route = $pageController->channelCreate();
+            } else if(isset($get['route']) && $get['route'] === "channel") {
+                $posts = $pageController->channel();  
+            } else if(isset($get['route']) && $get['route'] === "chat") {
+                $posts = $pageController->home();;  
             } else if(!isset($get['route'])) {
                 $posts = $pageController->home();    
-            }  else {
-                $pageController->notFound();
+            } else {
+                $route = $pageController->notFound();
             }
             require "templates/layout.phtml";
         }

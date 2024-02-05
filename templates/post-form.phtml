@@ -1,4 +1,11 @@
-<form action="index.php?route=postMessage" method="POST">
+<?php
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+    } else {
+        $id = null;
+    }
+?>
+<form action="index.php?route=postMessage&id=<?php echo $id ?>" method="POST">
     <label for="message" >Message</label>
     <input type="text"  id="message" name="message">
     <button type="submit" >Envoyer</button>
