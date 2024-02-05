@@ -25,7 +25,7 @@
         }
 
         public function about() : void {
-            $route  = "espace";
+            $route  = "about";
             require "templates/layout.phtml";
         }
 
