@@ -32,15 +32,18 @@
         public function channelShow() : array {
             $channels = new ChannelManager();
             $channels = $channels->getAllChannels();
-
             return $channels;
         }
 
-        public function channelCreate() : void {
-            if(isset($_POST['message'])) {
-                $post = new Post($_POST['message'], DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s')), 1);
-                $postManager = new PostManager();
-                $postManager->getCreatePost($post);
+        public function channelForm() : string {
+            $route  = "channel-form";
+            return $route;
+        }
+
+        public function channelCreate($idCategory) : void {
+            if(isset($_POST['channel'])) {
+                $channelManager = new ChannelManager();
+                $channelManager->create($_POST['channel'], $idCategory);
                 header("Location: index.php");
             } else {
                 header("Location: index.php");
@@ -59,7 +62,7 @@
             if(isset($_POST['message'])) {
                 $post = new Post($_POST['message'], DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s')), 1);
                 $postManager = new PostManager();
-                $postManager->getCreatePost($post);
+                $postManager->createPost($post);
                 header("Location: index.php");
             } else {
                 header("Location: index.php");

@@ -45,22 +45,16 @@ class ChannelManager extends AbstractManager
 
     }
 
-    public function create() : void
-    {
-        $channel_name = $_POST['channel_name']; // Il faut prendre le nom de l'attribut "id" dans lesfomulaires
-
-        
+    public function create(string $channelName, int $idCategory) : void
+    {       
        /* Lors du INSERT à ne pas mettre les colonne entre double quote ou quote simple.
         Ne pas mettre les valeurs du VALUE entre backquote*/
-        $query = $this->db->prepare("INSERT INTO channels (channel_name) VALUES (:channel_name)");
+        $query = $this->db->prepare("INSERT INTO channels (channel_name, id_category) VALUES (:channel_name, :idCategory)");
         $parameters = [
-            'channel_name' => $channel_name
+            'channel_name' => $channelName,
+            'idCategory' => $idCategory,
             ];
         $query->execute($parameters);
-
-        header("Location: index.php?route=chat");
-        die();
-
     }
 
     public function update() : void
