@@ -1,34 +1,35 @@
+<?php 
+$categories = $pageController->categoryShow(); 
+
+ ?>
 <section>
     <h1>Catégories<a href="index.php?route=create-category">+</a> </h1>
     <ul>
         <ul>
-            <?php foreach ($categories as $category) {?>
-                  
+        <?php foreach ($categories as $category) 
+        {
+            $IdCategory = $category->getId();
+            $channels = $pageController->channelShow();
+        ?>
+                    
             <h2><?= $category->getCategoryName();?><a href="index.php?route=create-channel&id=<?php echo $category->getId(); ?>">+</a></h2> 
 
             <?php foreach ($channels as $key => $channel)
             { 
-                if($category->getId() === $channel->getIdCategory())
-                    {
-                        
-
-                    
-                
-            
-                
+                if($category->getId() === $channel['id_category'])   
+                {
                 ?>
-                    <li><a href="index.php?route=channel&id=<?= $channel->getId();?>"><?= $channel->getChannelName();?></a></li>
+
+                    <li><a href="index.php?route=channel&id=<?= $channel['id'];?>"><?= $channel['channel_name'];?></a></li>
                 
                 <?php
-}
-}
-        ?>
-            
-            
-            <?php
+                }         
             }
-
-                ?>
+            ?>
+        
+        <?php
+        }
+        ?>
                 
         </ul>
     </ul>

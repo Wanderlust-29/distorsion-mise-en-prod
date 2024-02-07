@@ -30,38 +30,9 @@
         }
 
         /***************** Channel **********************/
-        public function channelShow() : array {
+        public function channelShow() :  array {
             $channels = new ChannelManager();
             $channels = $channels->getAllChannels();
-            $cats = new PageController();
-            $cats = $cats->categoryShow();
-            var_dump($cats);
-            var_dump($channels); $tabchannels = [];
-
-            foreach($cats as $key2 => $cat)
-            { 
-                $tabchannels[] = $cat->getCategoryName();
-                
-                
-            }
-        foreach($channels as $key1 => $channel)
-                {
-                
-                            
-                        
-                
-                    if($cat->getID() === $channel->getIdCategory())
-                    {
-                        $tabchannels[$cat->getCategoryName()] = $channel->getChannelName();
-
-                    }
-                    else
-                    {
-                       /*  $tabchannels[] = $cat->getCategoryName(); */
-                    }
-
-                }
-var_dump($channels);
         
             return $channels;
         }
