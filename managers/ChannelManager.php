@@ -12,14 +12,21 @@ class ChannelManager extends AbstractManager
 
     public function getAllChannels() : ? array
     {
-        $listchannel = [];
+        
 
         $query = $this->db->prepare('SELECT *  FROM channels');
-
         $query->execute();
         $channels = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $channels;
+        $listchannel = [];
+
+        foreach ($channels as $channel) {
+            
+            $list = new Channel($channel['channel_name'],$channel['id_category']);
+            $list->setId($channel['id']);
+            $listchannel[] = $list;
+        }
+        return $listchannel;
 
     }
 

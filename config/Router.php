@@ -8,8 +8,6 @@
         public function handleRequest(array $get, array $session) : void {
             $pageController = new PageController();
             $route = "post";
-/*             $categories = $pageController->categoryShow();
-            $channels = $pageController->channelShow(); */
             if(isset($get['route']) && $get['route'] === "about") {
                 $route = $pageController->about();
             } else if(isset($get['route']) && $get['route'] === "postMessage") {

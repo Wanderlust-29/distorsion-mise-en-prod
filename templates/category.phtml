@@ -8,19 +8,19 @@ $categories = $pageController->categoryShow();
         <ul>
         <?php foreach ($categories as $category) 
         {
-            $IdCategory = $category->getId();
+            
             $channels = $pageController->channelShow();
         ?>
                     
             <h2><?= $category->getCategoryName();?><a href="index.php?route=create-channel&id=<?php echo $category->getId(); ?>">+</a></h2> 
 
-            <?php foreach ($channels as $key => $channel)
+            <?php foreach ($channels as $channel)
             { 
-                if($category->getId() === $channel['id_category'])   
+                if($category->getId() === $channel->getIdCategory())   
                 {
                 ?>
 
-                    <li><a href="index.php?route=channel&id=<?= $channel['id'];?>"><?= $channel['channel_name'];?></a></li>
+                    <li><a href="index.php?route=channel&id=<?= $channel->getId();?>"><?= $channel->getChannelName();?></a></li>
                 
                 <?php
                 }         
