@@ -10,38 +10,38 @@ class ChannelManager extends AbstractManager
 
     }
 
-    public function getAllChannels() : array
+    public function getAllChannels() : ? array
     {
-        $listchannel = [];
+        
 
-        $query = $this->db->prepare('SELECT * FROM channels');
+        $query = $this->db->prepare('SELECT *  FROM channels');
         $query->execute();
         $channels = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach($channels as $key => $channel)
-        {
-            $listchannel[] = new Channel($channel["channel_name"], $channel["id_category"]);
-            $listchannel[$key]->setId($channel["id"]);
+        $listchannel = [];
+
+        foreach ($channels as $channel) {
             
+            $list = new Channel($channel['channel_name'],$channel['id_category']);
+            $list->setId($channel['id']);
+            $listchannel[] = $list;
         }
-        
         return $listchannel;
 
     }
 
-    public function findOne() : ? array
+    public function findOne(int $id_category) : ? array
     {
-        if(isset($_GET["id"]))
-        {
-            $query = $this->db->prepare('SELECT * FROM channels WHERE id = :id');
+        
+            $query = $this->db->prepare('SELECT * FROM channels WHERE id = :id_category');
             $parameters = [
-                'id' => $_GET["id"]
+                'id_category' => $id_category
                 ];
+            
                 $query->execute($parameters);
                 $channels = $query->fetchAll(PDO::FETCH_ASSOC);
                 return $channels ;
     
-        }
 
     }
 

@@ -29,7 +29,7 @@ class Channel
         $this->channelname = $channelname;
     }
 
-    public function getIdCategory() : string 
+    public function getIdCategory() : int 
     {
         return $this->idcategory;
     }

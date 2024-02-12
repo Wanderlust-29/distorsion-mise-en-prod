@@ -9,6 +9,7 @@
         public function categoryShow() : array {         
             $categories = new CategoryManager();
             $categories = $categories->getAllCategories();
+            
             return $categories;
         }
 
@@ -28,9 +29,10 @@
         }
 
         /***************** Channel **********************/
-        public function channelShow() : array {
+        public function channelShow() :  array {
             $channels = new ChannelManager();
             $channels = $channels->getAllChannels();
+        
             return $channels;
         }
 
